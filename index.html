@@ -37,17 +37,17 @@
     };
   </script>
 </head>
-<body class="h-[100dvh] font-ff text-size text-center text-PaleBlue 
+<body onload="myFunc()" class="h-[100dvh] font-ff text-size text-center text-PaleBlue 
 flex flex-col justify-center items-center bg-VeryDarkBlue bg-mobileBg 
-bg-no-repeat bg-contain md:bg-desktopBg md:bg-bottom md:text-left">
+bg-no-repeat bg-contain md:bg-desktopBg md:bg-bottom md:text-left ">
 
-<main class="flex flex-col justify-center items-center gap-5 md:flex-row">
+<main class="flex flex-col justify-center items-center gap-5 md:flex-row md:items-end">
   <div class="bg-DarkBlue rounded-tr-[6rem] rounded-[.4rem] w-full h-full 
-  flex flex-col justify-start items-start md:w-2/6">
-    <a href="#">
-      <img class="w-[8rem] p-4" src="./images/logo.svg" alt="Fylo Logo">
+  flex flex-col justify-start items-start md:w-3/6">
+    <a href="#" class="pt-5 px-5">
+      <img class="w-[9rem] p-4" src="./images/logo.svg" alt="Fylo Logo">
     </a>
-    <div class="flex justify-start items-center px-2">
+    <div class="flex justify-start items-center pb-5 px-5">
       <a href="#">
         <img class="icon" src="./images/icon-document.svg" alt="document sign">
       </a>
@@ -60,7 +60,7 @@ bg-no-repeat bg-contain md:bg-desktopBg md:bg-bottom md:text-left">
     </div>
   </div>
 
-  <div class="bg-DarkBlue p-5 rounded-[.5rem] w-full h-full md:w-[24rem] lg:w-[34rem]">
+  <div class="bg-DarkBlue p-5 rounded-[.5rem] w-full h-full md:w-[28rem] md:h-fit md:bottom-100 lg:w-[34rem]">
     <h1 class="mx-auto text-sm lg:text-md">You’ve used 
       <span class="font-bold">
         <span id="value"></span>
@@ -79,9 +79,7 @@ bg-no-repeat bg-contain md:bg-desktopBg md:bg-bottom md:text-left">
     </div>
     <div class="relative">
       <div class="bubble bg-white text-VeryDarkBlue font-bold flex justify-center items-center gap-2 
-      z-20 p-2 rounded-[.5rem] absolute top-[65%] left-[15%] 
-      md:-top-[150px] md:left-[200px] 
-      lg:-top-[150px] lg:left-[310px]
+      z-20 p-2 rounded-[.5rem] absolute top-[65%] left-[15%] md:-top-[150px] md:left-[200px] lg:-top-[150px] lg:left-[280px]
       "> 
         <h1 class="text-3xl">
           <span id="dataleft"></span>
@@ -91,7 +89,7 @@ bg-no-repeat bg-contain md:bg-desktopBg md:bg-bottom md:text-left">
     </div>
   </div>
 </main>
-<footer class="text-center md:text-xl mt-[5rem]">Challenge by
+<footer class="text-center md:text-xl mt-[5rem] fixed bottom-0">Challenge by
   <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" class="text-blue-400 font-bold">Frontend Mentor</a>
   <br>Coded by
   <a href="https://www.frontendmentor.io/profile/Ganesh-G0" target="_blank" class="text-blue-400 font-bold">Ganesh</a>
