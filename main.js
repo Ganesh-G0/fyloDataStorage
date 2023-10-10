@@ -10,7 +10,10 @@ slider.oninput = function() {
   output1.innerHTML = (1000) - (this.value);
 }  
 
-
+function myFunc() {
+  let color = 'linear-gradient(90deg, hsl(6, 100%, 80%), hsl(335, 100%, 65%)' + slider.value/10 + '%, hsl(229, 57%, 11%)' + slider.value/10 + '%';
+  slider.style.background = color;
+}
 slider.addEventListener('mousemove', function(){
   let x = slider.value;
   let color = 'linear-gradient(90deg, hsl(6, 100%, 80%), hsl(335, 100%, 65%)' + x/10 + '%, hsl(229, 57%, 11%)' + x/10 + '%';
