@@ -7,24 +7,23 @@
   --Dark-Blue: hsl(228, 56%, 26%);
   --Very-Dark-Blue: hsl(229, 57%, 11%);
 }
-
 .icon {
   margin: .5rem;
   padding: .5rem;
   border-radius: .5rem;
   background-color: var(--Very-Dark-Blue);
 }
-
 .slider {
-  -webkit-appearance:  none;
+  -webkit-appearance: none;
+  appearance: none;
   width: 100%;
   outline: none;
-  /* -webkit-transition: 0.2s; */
-  /* transition: opacity 0.2s; */
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
   border-radius: 1rem;
   background: var(--Very-Dark-Blue);
-  border: 2px solid var(--Dark-Blue);
-  box-shadow: 0 1px 10px 1px var(--Very-Dark-Blue);
+  border: 2px solid var(--Very-Dark-Blue);
+  /* box-shadow: 0 1px 10px 1px var(--Very-Dark-Blue); */
 }
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
