@@ -1,21 +1,25 @@
-let slider = document.getElementById("myRange");
-let output = document.getElementById("value");
-let output1 = document.getElementById("dataleft");
+const slider = $("#dataSlider");
+const value = $("#dataUsed");
+const dataLeft = $("#dataLeft");
 
-output.innerHTML = slider.value;
-output1.innerHTML = (1000) - (slider.value);
-
-slider.oninput = function() {
-  output.innerHTML = this.value;
-  output1.innerHTML = (1000) - (this.value);
-}  
-
-function myFunc() {
-  let color = 'linear-gradient(90deg, hsl(6, 100%, 80%), hsl(335, 100%, 65%)' + slider.value/10 + '%, hsl(229, 57%, 11%)' + slider.value/10 + '%';
-  slider.style.background = color;
+function data() {  
+  let currentValue = slider.val();
+  
+  value.text(currentValue);
+  dataLeft.text((1000) - (currentValue));  
+  let progress = currentValue / 1000 * 100;
+  slider.css("background", `
+    linear-gradient(90deg, 
+    hsl(6, 100%, 80%), 
+    hsl(335, 100%, 65%) ${progress}%, 
+    hsl(229, 57%, 11%) ${progress}%`) 
 }
-slider.addEventListener('mousemove', function(){
-  let x = slider.value;
-  let color = 'linear-gradient(90deg, hsl(6, 100%, 80%), hsl(335, 100%, 65%)' + x/10 + '%, hsl(229, 57%, 11%)' + x/10 + '%';
-  slider.style.background = color;
+slider.change((event) => {
+  
+  value.text(event.target.value);
+  dataLeft.text((1000) - (event.target.value));  
+  let progress = event.target.value / 1000 * 100;
+  slider.css("background", 
+    `linear-gradient(90deg, 
+    hsl(6, 100%, 80%), hsl(335, 100%, 65%) ${progress}%, hsl(229, 57%, 11%) ${progress}%`) 
 })
