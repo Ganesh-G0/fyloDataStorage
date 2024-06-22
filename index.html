@@ -1,100 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="styles.css">
-  <title>Fylo Data Storage</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          backgroundImage: {
-            mobileBg: "url('./images/bg-mobile.png')",
-            desktopBg: "url('./images/bg-desktop.png')",
-          },
-          screens: {
-            mobile: "375px",
-            desktop: "1440px",
-          },
-          colors: {
-            PaleBlue: 'hsl(243, 100%, 93%)',
-            GrayishBlue: 'hsl(229, 7%, 55%)',
-            DarkBlue: 'hsl(228, 56%, 26%)',
-            VeryDarkBlue: 'hsl(229, 57%, 11%)',
-            attribution: "hsl(228, 45%, 44%)",
-          },
-          fontFamily: {
-            ff: ['Raleway', 'sans-serif'],
-          },
-          fontSize: {
-            size: "14px",
-          },
-        },
-      },
-    };
-  </script>
-</head>
-<body onload="myFunc()" class="h-[100dvh] font-ff text-size text-center text-PaleBlue 
-flex flex-col justify-center items-center bg-VeryDarkBlue bg-mobileBg 
-bg-no-repeat bg-contain md:bg-desktopBg md:bg-bottom md:text-left ">
-
-<main class="flex flex-col justify-center items-center gap-5 md:flex-row md:items-end">
-  <div class="bg-DarkBlue rounded-tr-[6rem] rounded-[.4rem] w-full h-full 
-  flex flex-col justify-start items-start md:w-3/6">
-    <a href="#" class="pt-5 px-5">
-      <img class="w-[9rem] p-4" src="./images/logo.svg" alt="Fylo Logo">
-    </a>
-    <div class="flex justify-start items-center pb-5 px-5">
-      <a href="#">
-        <img class="icon" src="./images/icon-document.svg" alt="document sign">
-      </a>
-      <a href="#">
-        <img class="icon" src="./images/icon-folder.svg" alt="folder sign">
-      </a>
-      <a href="#">
-        <img class="icon" src="./images/icon-upload.svg" alt="folder sign">
-      </a>
-    </div>
-  </div>
-
-  <div class="bg-DarkBlue p-5 rounded-[.5rem] w-full h-full md:w-[28rem] md:h-fit md:bottom-100 lg:w-[34rem]">
-    <h1 class="mx-auto text-sm lg:text-md">You’ve used 
-      <span class="font-bold">
-        <span id="value"></span>
-        GB 
-      </span> 
-      of your storage
-    </h1>  
-    <div class="pt-5">
-      <div class="pb-2 slideContainer">
-        <input type="range" min="0" max="1000" value="815" id="myRange" class="slider">
-      </div>  
-      <div class="flex justify-between -mt-2 font-bold pb-2">
-        <p>0 GB</p>
-        <p>1000 GB</p>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png">
+    <title>Fylo Data Storage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" >
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script defer src="main.js"></script>
+  </head>
+  <body onload="data()">
+    <main>
+      <div class="img-section">
+        <img src="./images/logo.svg" alt="brand logo">
+        <div>
+          <button><img src="./images/icon-document.svg" alt="document" draggable="false"></button>
+          <button><img src="./images/icon-folder.svg" alt="folder" draggable="false"></button>
+          <button><img src="./images/icon-upload.svg" alt="upload" draggable="false"></button>
+        </div>
       </div>
-    </div>
-    <div class="relative">
-      <div class="bubble bg-white text-VeryDarkBlue font-bold flex justify-center items-center gap-2 
-      z-20 p-2 rounded-[.5rem] absolute top-[65%] left-[15%] md:-top-[150px] md:left-[200px] lg:-top-[150px] lg:left-[280px]
-      "> 
-        <h1 class="text-3xl">
-          <span id="dataleft"></span>
-        </h1>
-        <p class="text-[.8rem] font-[550] text-GrayishBlue text-center uppercase"> gb left</p>
-      </div>
-    </div>
-  </div>
-</main>
-<footer class="text-center md:text-xl mt-[5rem]">Challenge by
-  <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" class="text-blue-400 font-bold">Frontend Mentor</a>
-  <br>Coded by
-  <a href="https://www.frontendmentor.io/profile/Ganesh-G0" target="_blank" class="text-blue-400 font-bold">Ganesh</a>
-</footer>
-<script src="main.js"></script>
-</body>
+      <section class="text-section">
+        <h1>You’ve used <span class="font-bold"><span id="dataUsed"></span> GB </span> of your storage</h1>
+        <div>
+          <input type="range" min="0" max="1000" step="1" value="815" id="dataSlider" onchange="data()">
+          <div class="flex">
+            <p>0 GB</p>
+            <p>1000 GB</p>
+          </div>
+        </div>
+        <div class="absolute">
+          <h1><span id="dataLeft"> </span> gb left</h1>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
-
